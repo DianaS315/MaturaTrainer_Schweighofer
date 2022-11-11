@@ -1,0 +1,16 @@
+button.filter {
+  left: 95px;
+}
+button.mat-mini-fab{
+  left: 0px;
+  margin-left:95px;
+}
+input {
+  margin-right: 75px;
+  width: 400px;
+}
+
+input.filter {
+  margin-right: 75px;
+  width: 470px;
+}

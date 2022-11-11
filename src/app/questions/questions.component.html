@@ -1,0 +1,74 @@
+<br>
+<h1>New Questions</h1>
+
+<input
+  type="text"
+  class="filter"
+  id="containsFilter"
+  name="containsFilter"
+  [(ngModel)]="this.questions.filterInput"
+/>
+<button mat-raised-button class="filter" color="primary">Filter</button>
+<br />
+<br />
+
+<table>
+  <tbody>
+    <tr *ngFor="let question of this.questions.getQuestions()">
+      <mat-card>
+        <mat-card-content>
+          Question:
+          <input
+            type="text"
+            id="question"
+            name="question"
+            [(ngModel)]="this.question.q"
+          />
+
+          <button
+            mat-raised-button
+            type="button"
+            id="delete"
+            color="primary"
+            mat-mini-fab
+            (click)="this.questions.deleteQuestion(this.question)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-content>
+        <mat-card-content>
+          <mat-checkbox
+            type="checkbox"
+            id="isValid"
+            name="isValid"
+            [(ngModel)]="this.question.isTrue"
+            (click)="this.questions.trueQuestion(this.question)"
+          >
+            true
+          </mat-checkbox>
+          <mat-checkbox
+            type="checkbox"
+            id="isValid"
+            name="isValid"
+            [(ngModel)]="this.question.isFalse"
+            (click)="this.questions.falseQuestion(this.question)"
+          >
+            false
+          </mat-checkbox>
+        </mat-card-content>
+      </mat-card>
+      <br />
+    </tr>
+  </tbody>
+  <button
+    mat-raised-button
+    type="button"
+    id="delete"
+    color="primary"
+    (click)="this.questions.addQuestion()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</table>
+
+

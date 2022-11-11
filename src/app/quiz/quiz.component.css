@@ -1,0 +1,14 @@
+button{
+  margin-top: 10px;
+}
+button.check{
+  margin-top: 10px;
+  margin-right: 580px;
+}
+
+button.skip
+{
+  left: 480px;
+  margin-top: 0px;
+}
+
