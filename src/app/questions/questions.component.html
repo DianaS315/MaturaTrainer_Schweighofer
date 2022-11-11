@@ -1,13 +1,18 @@
-<br>
+<br />
 <h1>New Questions</h1>
+<p>
+  <mat-form-field>
+    <mat-label>
+      Filter
+    </mat-label>
+    <input matInput   type="text"
+    class="filter"
+    id="containsFilter"
+    name="containsFilter"
+    [(ngModel)]="this.questions.filterInput">
+  </mat-form-field>
+</p>
 
-<input
-  type="text"
-  class="filter"
-  id="containsFilter"
-  name="containsFilter"
-  [(ngModel)]="this.questions.filterInput"
-/>
 <button mat-raised-button class="filter" color="primary">Filter</button>
 <br />
 <br />
@@ -17,13 +22,18 @@
     <tr *ngFor="let question of this.questions.getQuestions()">
       <mat-card>
         <mat-card-content>
-          Question:
-          <input
-            type="text"
-            id="question"
-            name="question"
-            [(ngModel)]="this.question.q"
-          />
+          <p>
+            <mat-form-field appearance="legacy">
+              <mat-label> Question </mat-label>
+              <input
+                matInput
+                type="text"
+                id="question"
+                name="question"
+                [(ngModel)]="this.question.q"
+              />
+            </mat-form-field>
+          </p>
 
           <button
             mat-raised-button
@@ -70,5 +80,6 @@
     <mat-icon>add</mat-icon>
   </button>
 </table>
+
 
 

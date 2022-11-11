@@ -18,7 +18,9 @@ export class QuestionsService {
     this.questions = [
       new Question('Molasses runs with a speed of 35 mp/h', true, false),
       new Question('Should I quit school?', false, true),
-      new Question('I can find a job after i am done with HAK.', false, true),
+      new Question('I can find a job after i am done with HAK.', true, false),
+      new Question('Angular Material makes applications look pretty.', true, false),
+      new Question('Google Translate is a good way of translating any kind of written text.', false, true)
     ];
   }
 
@@ -29,9 +31,10 @@ export class QuestionsService {
 
   public getQuestions(): Question[] {
     let result: Question[] = this.questions;
+    this.filterInput.toLowerCase();
     if (this.filterInput != '') {
       result = result.filter((question) =>
-        question.q.includes(this.filterInput)
+        question.q.toLowerCase().includes(this.filterInput)
       );
     }
     return result;
@@ -39,8 +42,8 @@ export class QuestionsService {
 
   public deleteQuestion(question: Question): void {
     for (let i = 0; i < this.questions.length; i++) {
-      if (this.questions[i + 1].q === question.q) {
-        this.questions.splice(i + 1, 1);
+      if (this.questions[i].q === question.q) {
+        this.questions.splice(i, 1);
       }
     }
   }
@@ -60,6 +63,4 @@ export class QuestionsService {
       }
     }
   }
-
-
 }

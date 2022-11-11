@@ -1,16 +1,14 @@
 button.filter {
-  left: 95px;
+  left: 650px;
+  top: -70px;
 }
 button.mat-mini-fab{
-  left: 0px;
-  margin-left:95px;
+  left: 640px;
+  top: -70px;
 }
-input {
+mat-form-field {
   margin-right: 75px;
-  width: 400px;
+  width: 610px;
 }
 
-input.filter {
-  margin-right: 75px;
-  width: 470px;
-}
+

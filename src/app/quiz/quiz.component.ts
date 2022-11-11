@@ -15,7 +15,9 @@ export class QuizComponent {
 
   public answeredCorrectly: boolean = false;
   public answeredIncorrectly: boolean = false;
-  constructor(public questions: QuestionsService) {}
+  constructor(public questions: QuestionsService) {
+    this.newRandomQuestion()
+  }
 
   public newRandomQuestion() {
     const questions: Question[] = this.questions.getQuestions();
