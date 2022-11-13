@@ -34,7 +34,7 @@ export class QuestionsService {
     this.filterInput.toLowerCase();
     if (this.filterInput != '') {
       result = result.filter((question) =>
-        question.q.toLowerCase().includes(this.filterInput)
+        question.q.toLowerCase().includes(this.filterInput.toLocaleLowerCase())
       );
     }
     return result;
