@@ -19,8 +19,16 @@ export class QuestionsService {
       new Question('Molasses runs with a speed of 35 mp/h', true, false),
       new Question('Should I quit school?', false, true),
       new Question('I can find a job after i am done with HAK.', true, false),
-      new Question('Angular Material makes applications look pretty.', true, false),
-      new Question('Google Translate is a good way of translating any kind of written text.', false, true)
+      new Question(
+        'Angular Material makes applications look pretty.',
+        true,
+        false
+      ),
+      new Question(
+        'Google Translate is a good way of translating any kind of written text.',
+        false,
+        true
+      ),
     ];
   }
 
@@ -50,12 +58,14 @@ export class QuestionsService {
 
   public changeValidity(question: Question): void {
     for (let i = 0; i < this.questions.length; i++) {
-      if (this.questions[i + 1].q === question.q) {
-        this.questions[i + 1].isTrue = !this.questions[i + 1].isTrue;
-        this.questions[i + 1].isFalse = !this.questions[i+1].isFalse;
+      if (this.questions[i].q === question.q && this.questions[i].isTrue === true) {
+        this.questions[i ].isTrue = !this.questions[i].isTrue;
+        this.questions[i ].isFalse = this.questions[i].isFalse;
+      }
+      if (this.questions[i].q === question.q && this.questions[i].isFalse === true) {
+        this.questions[i ].isTrue = this.questions[i].isTrue;
+        this.questions[i ].isFalse = !this.questions[i].isFalse;
       }
     }
   }
-
-
 }
