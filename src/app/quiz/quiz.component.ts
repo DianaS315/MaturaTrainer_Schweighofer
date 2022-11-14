@@ -15,8 +15,11 @@ export class QuizComponent {
 
   public answeredCorrectly: boolean = false;
   public answeredIncorrectly: boolean = false;
+  public amountOfQuestionsAnsweredCorrectly: number = 0;
+  public amountOfQuestionsAnsweredIncorrectly: number = 0;
+
   constructor(public questions: QuestionsService) {
-    this.newRandomQuestion()
+    this.newRandomQuestion();
   }
 
   public newRandomQuestion() {
@@ -35,11 +38,29 @@ export class QuizComponent {
     this.pickedFalse = false;
   }
 
+  public changeValidity(question: Question): void {
+    for (let i = 0; i < this.questions.questions.length; i++) {
+      if (this.questions.questions[i + 1].q === question.q) {
+        this.questions.questions[i + 1].isTrue =
+          !this.questions.questions[i + 1].isTrue;
+        this.questions.questions[i + 1].isFalse =
+          !this.questions.questions[i + 1].isFalse;
+      }
+    }
+  }
   public checkAnswer() {
     if (this.pickedTrue === this.isTrue && this.pickedFalse === this.isFalse) {
       this.answeredCorrectly = true;
-    } else {
+      this.amountOfQuestionsAnsweredCorrectly ++
+       } else {
       this.answeredIncorrectly = true;
+      this.amountOfQuestionsAnsweredIncorrectly ++
     }
   }
+
+  public resetScore(){
+    this.amountOfQuestionsAnsweredCorrectly = 0;
+    this.amountOfQuestionsAnsweredIncorrectly = 0;
+  }
+
 }

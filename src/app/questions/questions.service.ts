@@ -48,19 +48,14 @@ export class QuestionsService {
     }
   }
 
-  public trueQuestion(question: Question): void {
+  public changeValidity(question: Question): void {
     for (let i = 0; i < this.questions.length; i++) {
       if (this.questions[i + 1].q === question.q) {
         this.questions[i + 1].isTrue = !this.questions[i + 1].isTrue;
+        this.questions[i + 1].isFalse = !this.questions[i+1].isFalse;
       }
     }
   }
 
-  public falseQuestion(question: Question): void {
-    for (let i = 0; i < this.questions.length; i++) {
-      if (this.questions[i + 1].q === question.q) {
-        this.questions[i + 1].isFalse = !this.questions[i + 1].isFalse;
-      }
-    }
-  }
+
 }

@@ -47,17 +47,17 @@
           </button>
         </mat-card-content>
         <mat-card-content>
-          <mat-checkbox
+           <mat-checkbox
             type="checkbox"
             [(ngModel)]="this.question.isTrue"
-            (click)="this.questions.trueQuestion(this.question)"
+            (click)="this.questions.changeValidity(this.question)"
           >
             true
           </mat-checkbox>
           <mat-checkbox
             type="checkbox"
             [(ngModel)]="this.question.isFalse"
-            (click)="this.questions.falseQuestion(this.question)"
+            (click)="this.questions.changeValidity(this.question)"
           >
             false
           </mat-checkbox>
